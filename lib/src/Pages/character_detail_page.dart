@@ -53,34 +53,41 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
               )
             ],
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate((_, __) {
-              return TabBar(
-                controller: _tabController,
-                tabs: <Widget>[
-                  Tab(
-                    child: Text(
-                      'Detail',
-                      style: TextStyle(color: Colors.black),
-                    ),
+          SliverPersistentHeader(
+            pinned: true,
+            delegate: _SliverAppBarDelegate(
+              child: PreferredSize(
+                child: Container(
+                  color: Colors.grey.shade50,
+                  child: TabBar(
+                    controller: _tabController,
+                    tabs: <Widget>[
+                      Tab(
+                        child: Text(
+                          'Detail',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                      Tab(
+                        child: Text(
+                          'Form',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                      Tab(
+                        child: Text(
+                          'Description',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      )
+                    ],
+                    indicatorColor: widget.character.colors[0],
+                    unselectedLabelColor: Colors.grey.shade400,
                   ),
-                  Tab(
-                    child: Text(
-                      'Form',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
-                  Tab(
-                    child: Text(
-                      'Description',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  )
-                ],
-                indicatorColor: widget.character.colors[0],
-                unselectedLabelColor: Colors.grey.shade400,
-              );
-            }, childCount: 1, addSemanticIndexes: true),
+                ),
+                preferredSize: Size.fromHeight(screenHeight*0.06),
+              )
+            ),
           ),
           SliverFixedExtentList(
             itemExtent: 650,
@@ -102,4 +109,31 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
       ),
     ));
   }
+}
+
+class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  final PreferredSize child;
+
+  _SliverAppBarDelegate({ this.child });
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    // TODO: implement build
+    return child;
+  }
+
+  @override
+  // TODO: implement maxExtent
+  double get maxExtent => child.preferredSize.height;
+
+  @override
+  // TODO: implement minExtent
+  double get minExtent => child.preferredSize.height;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    // TODO: implement shouldRebuild
+    return false;
+  }
+
 }
