@@ -71,7 +71,7 @@ class _CharacterWidgetState extends State<CharacterWidget> {
                             color: Colors.transparent,
                             child: Container(
                               child: Text(
-                                widget.character.name,
+                                widget.character.name.substring(0,widget.character.name.indexOf(' ')),
                                 style: TextStyle(
                                     fontSize: 32,
                                     fontWeight: FontWeight.bold,

@@ -29,6 +29,7 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
     final screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
         child: Scaffold(
+      resizeToAvoidBottomInset: false,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
@@ -36,7 +37,8 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
             expandedHeight: screenHeight * 0.4,
             title: Hero(
                 tag: 'name-${widget.character.name}',
-                child: Text(widget.character.name)),
+                child: Text(widget.character.name
+                    .substring(0, widget.character.name.indexOf(' ')))),
             flexibleSpace: FlexibleSpaceBar(
                 background: Hero(
                     tag: 'image-${widget.character.name}',
@@ -56,54 +58,53 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
           SliverPersistentHeader(
             pinned: true,
             delegate: _SliverAppBarDelegate(
-              child: PreferredSize(
-                child: Container(
-                  color: Colors.grey.shade50,
-                  child: TabBar(
-                    controller: _tabController,
-                    tabs: <Widget>[
-                      Tab(
-                        child: Text(
-                          'Detail',
-                          style: TextStyle(color: Colors.black),
-                        ),
+                child: PreferredSize(
+              child: Container(
+                color: Colors.grey.shade50,
+                child: TabBar(
+                  controller: _tabController,
+                  tabs: <Widget>[
+                    Tab(
+                      child: Text(
+                        'Detail',
+                        style: TextStyle(color: Colors.black),
                       ),
-                      Tab(
-                        child: Text(
-                          'Form',
-                          style: TextStyle(color: Colors.black),
-                        ),
+                    ),
+                    Tab(
+                      child: Text(
+                        'Form',
+                        style: TextStyle(color: Colors.black),
                       ),
-                      Tab(
-                        child: Text(
-                          'Description',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      )
-                    ],
-                    indicatorColor: widget.character.colors[0],
-                    unselectedLabelColor: Colors.grey.shade400,
-                  ),
+                    ),
+                    Tab(
+                      child: Text(
+                        'Description',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                    )
+                  ],
+                  indicatorColor: widget.character.colors[0],
+                  unselectedLabelColor: Colors.grey.shade400,
                 ),
-                preferredSize: Size.fromHeight(screenHeight*0.06),
-              )
-            ),
+              ),
+              preferredSize: Size.fromHeight(screenHeight * 0.07),
+            )),
           ),
-          SliverFixedExtentList(
-            itemExtent: 650,
-            delegate: SliverChildBuilderDelegate((_,__){
-              return TabBarView(
-                controller: _tabController,
-                children: <Widget>[
-                 TabDetail(character: widget.character,),
-                  FormTab(character: widget.character,),
-                DescriptionTab(character: widget.character,)
-                ],
-              );
-            },
-              childCount: 1
+          SliverFillRemaining(
+            child: TabBarView(
+              controller: _tabController,
+              children: <Widget>[
+                TabDetail(
+                  character: widget.character,
+                ),
+                FormTab(
+                  character: widget.character,
+                ),
+                DescriptionTab(
+                  character: widget.character,
+                )
+              ],
             ),
-
           )
         ],
       ),
@@ -114,10 +115,11 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
 class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final PreferredSize child;
 
-  _SliverAppBarDelegate({ this.child });
+  _SliverAppBarDelegate({this.child});
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
     // TODO: implement build
     return child;
   }
@@ -135,5 +137,4 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     // TODO: implement shouldRebuild
     return false;
   }
-
 }
