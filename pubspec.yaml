@@ -45,6 +45,9 @@ flutter:
     - images/kotori.png
     - images/tohka.png
     - images/kotori_spiritForm.png
+    - images/tohka_spiritForm.png
+    - images/tohka_InverseForm.png
+    - images/tohka_FullForm.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

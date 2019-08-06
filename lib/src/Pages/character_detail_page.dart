@@ -29,7 +29,7 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
     final screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
         child: Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
@@ -90,20 +90,25 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
               preferredSize: Size.fromHeight(screenHeight * 0.07),
             )),
           ),
-          SliverFillRemaining(
-            child: TabBarView(
-              controller: _tabController,
-              children: <Widget>[
-                TabDetail(
-                  character: widget.character,
-                ),
-                FormTab(
-                  character: widget.character,
-                ),
-                DescriptionTab(
-                  character: widget.character,
-                )
-              ],
+          SliverFixedExtentList(
+            itemExtent: screenHeight*1.25,
+            delegate: SliverChildBuilderDelegate((builder,_){
+              return TabBarView(
+                controller: _tabController,
+                children: <Widget>[
+                  TabDetail(
+                    character: widget.character,
+                  ),
+                  FormTab(
+                    character: widget.character,
+                  ),
+                  DescriptionTab(
+                    character: widget.character,
+                  )
+                ],
+              );
+            },
+              childCount: 1
             ),
           )
         ],
