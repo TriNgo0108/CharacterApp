@@ -42,7 +42,7 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
             flexibleSpace: FlexibleSpaceBar(
                 background: Hero(
                     tag: 'image-${widget.character.name}',
-                    child: Image.asset(widget.character.imagePath))),
+                    child: Image.asset(widget.character.imagePath[0]))),
             pinned: true,
             floating: true,
             shape: RoundedRectangleBorder(
@@ -90,27 +90,22 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
               preferredSize: Size.fromHeight(screenHeight * 0.07),
             )),
           ),
-          SliverFixedExtentList(
-            itemExtent: screenHeight*1.25,
-            delegate: SliverChildBuilderDelegate((builder,_){
-              return TabBarView(
-                controller: _tabController,
-                children: <Widget>[
-                  TabDetail(
-                    character: widget.character,
-                  ),
-                  FormTab(
-                    character: widget.character,
-                  ),
-                  DescriptionTab(
-                    character: widget.character,
-                  )
-                ],
-              );
-            },
-              childCount: 1
-            ),
-          )
+         SliverFillRemaining(
+           child: TabBarView(
+             controller: _tabController,
+             children: <Widget>[
+               TabDetail(
+                 character: widget.character,
+               ),
+               FormTab(
+                 character: widget.character,
+               ),
+               DescriptionTab(
+                 character: widget.character,
+               )
+             ],
+           ),
+         )
         ],
       ),
     ));

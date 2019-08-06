@@ -54,7 +54,7 @@ class _CharacterWidgetState extends State<CharacterWidget> {
                   child: Hero(
                     tag: "image-${widget.character.name}",
                     child: Image.asset(
-                      widget.character.imagePath,
+                      widget.character.imagePath[0],
                       height: screenHeight * 0.55*value,
                     ),
                   ),

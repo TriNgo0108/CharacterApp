@@ -16,63 +16,60 @@ class _FormTabState extends State<FormTab> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: Container(
-            height: screenHeight * 0.4,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(color: Colors.grey.shade100, offset: Offset(0, 6)),
-                ],
-                borderRadius: BorderRadius.circular(6),
-                shape: BoxShape.rectangle),
-            child: Card(
-              child: Column(
-                children: <Widget>[
-                  Image.asset(
-                    widget.character.imagePath,
-                    height: screenHeight * 0.35,
-                  ),
-                  Text(
-                    'Normal Form',
-                    style: TextStyle(fontSize: 18),
-                  )
-                ],
+    Widget characterForm(String nameForm, int index) {
+      return Container(
+        height: screenHeight * 0.5,
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(color: Colors.grey.shade100, offset: Offset(0, 6)),
+        ], borderRadius: BorderRadius.circular(6), shape: BoxShape.rectangle),
+        child: Card(
+          child: Column(
+            children: <Widget>[
+              Image.asset(
+                widget.character.imagePath[index],
+                height: screenHeight * 0.25,
               ),
-            ),
+              Text(
+                nameForm,
+                style: TextStyle(fontSize: 18),
+              )
+            ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: Container(
-            height: screenHeight * 0.4,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(color: Colors.grey.shade100, offset: Offset(0, 6)),
-                ],
-                borderRadius: BorderRadius.circular(6),
-                shape: BoxShape.rectangle),
-            child: Card(
-              child: Column(
-                children: <Widget>[
-                  Image.asset(
-                    'images/kotori_spiritForm.png',
-                    height: screenHeight * 0.35,
-                  ),
-                  Text(
-                    'Spirit Form',
-                    style: TextStyle(fontSize: 18),
-                  )
-                ],
-              ),
-            ),
-          ),
-        )
-      ],
+      );
+    }
+
+    return GridView.builder(
+      shrinkWrap: true,
+      itemCount: widget.character.imagePath.length,
+      gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      itemBuilder: (_, index) {
+        String nameForm = '';
+        switch (index) {
+          case 0:
+            {
+              nameForm = 'Normal Form';
+              break;
+            }
+          case 1:
+            {
+              nameForm = 'Spirit Form';
+              break;
+            }
+          case 2:
+            {
+              nameForm = 'Inverse Form';
+              break;
+            }
+          case 3:
+            {
+              nameForm = 'Full Form';
+              break;
+            }
+        }
+        return characterForm(nameForm, index);
+      },
     );
   }
 }
