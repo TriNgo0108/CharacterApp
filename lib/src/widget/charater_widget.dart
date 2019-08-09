@@ -46,7 +46,9 @@ class _CharacterWidgetState extends State<CharacterWidget> {
                             gradient: LinearGradient(
                                 colors: widget.character.colors,
                                 begin: Alignment.topLeft,
-                                end: Alignment.bottomCenter)),
+                                end: Alignment.bottomCenter),
+                          borderRadius: BorderRadius.circular(30)
+                        ),
                       )),
                 ),
                 Align(
