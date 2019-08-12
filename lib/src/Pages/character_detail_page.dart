@@ -37,8 +37,7 @@ class _CharacterDetailPageState extends State<CharacterDetailPage>
             expandedHeight: screenHeight * 0.4,
             title: Hero(
                 tag: 'name-${widget.character.name}',
-                child: Text(widget.character.name
-                    .substring(0, widget.character.name.indexOf(' ')))),
+                child: Text(widget.character.name.contains(' ')?widget.character.name.substring(0,widget.character.name.indexOf(' ')) : widget.character.name)),
             flexibleSpace: FlexibleSpaceBar(
                 background: Hero(
                     tag: 'image-${widget.character.name}',
