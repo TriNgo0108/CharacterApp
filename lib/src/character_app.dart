@@ -6,7 +6,7 @@ class CharacterApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-        title: 'Character App',
+        title: 'Date A Live',
         home: HomePage(),
     );
   }

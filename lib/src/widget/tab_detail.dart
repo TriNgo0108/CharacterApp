@@ -131,6 +131,7 @@ class _TabDetailState extends State<TabDetail> with TickerProviderStateMixin {
                             'Age: ${widget.character.age}',
                             style: TextStyle(fontSize: 18),
                           ),
+                          SizedBox(width: screenWidth*0.01,),
                           Text(
                             'Gender: ${widget.character.gender}',
                             style: TextStyle(fontSize: 18),
