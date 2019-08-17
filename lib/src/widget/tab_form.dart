@@ -67,16 +67,17 @@ class _FormTabState extends State<FormTab> with TickerProviderStateMixin {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.fromLTRB(screenWidth*0.05, screenHeight*0.05, 0, 0),
+                        padding: EdgeInsets.fromLTRB(
+                            screenWidth * 0.05, screenHeight * 0.05, 0, 0),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                                nameForm,
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: widget.character.colors[0]),
-                              ),
+                              nameForm,
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: widget.character.colors[0]),
+                            ),
                             SizedBox(
                               height: 0,
                               width: screenWidth * 0.35,
@@ -96,7 +97,7 @@ class _FormTabState extends State<FormTab> with TickerProviderStateMixin {
                   ),
                 ),
                 children: <Widget>[
-                  Image.asset(imagePath),
+                  Image.asset(imagePath,height: screenHeight*0.3,width: screenWidth*0.3,),
                 ],
               ),
             );
@@ -107,7 +108,7 @@ class _FormTabState extends State<FormTab> with TickerProviderStateMixin {
       return CircularRevealAnimation(
         animation: animation,
         child: Container(
-          height: screenHeight * 0.6,
+          padding: EdgeInsets.only(top: screenHeight*0.005),
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(color: Colors.grey.shade100, offset: Offset(0, 6)),
           ], borderRadius: BorderRadius.circular(6), shape: BoxShape.rectangle),
@@ -117,13 +118,13 @@ class _FormTabState extends State<FormTab> with TickerProviderStateMixin {
               _showImage(nameForm, widget.character.imagePath[index]);
             },
             child: Card(
-              margin: EdgeInsets.only(
-                  top: screenHeight * 0.01, left: screenWidth * 0.01),
+              margin: EdgeInsets.only(left: screenWidth*0.01),
               child: Column(
                 children: <Widget>[
                   Image.asset(
                     widget.character.imagePath[index],
-                    height: screenHeight * 0.24,
+                    height: screenHeight * 0.2,
+                    width: screenWidth*0.2,
                   ),
                   SizedBox(
                     height: screenHeight * 0.01,
