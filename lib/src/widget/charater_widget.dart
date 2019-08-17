@@ -45,8 +45,8 @@ class _CharacterWidgetState extends State<CharacterWidget> {
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
                                 colors: widget.character.colors,
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomCenter),
+                                begin: Alignment.centerRight,
+                                end: Alignment.topLeft),
                           borderRadius: BorderRadius.circular(30)
                         ),
                       )),
@@ -78,16 +78,16 @@ class _CharacterWidgetState extends State<CharacterWidget> {
                                     fontSize: 32,
                                     fontWeight: FontWeight.bold,
                                     color:
-                                    widget.character.colors[0].withGreen(150)),
+                                    widget.character.colors[0].withGreen(5)),
                               ),
                             ),
-                          )),
+            )),
                       Text(
                         "Tap to Read more",
                         style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w300,
-                            color: Colors.grey.shade400),
+                            color: Colors.white),
                       ),
                     ],
                   ),

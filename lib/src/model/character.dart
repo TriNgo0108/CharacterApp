@@ -55,7 +55,7 @@ List<Character> characters = [
         'Date A Live: Ars Install',
         'Date A Live Twin Edition: Rio Reincarnation'
       ],
-      [Colors.pinkAccent.shade100,Colors.pink.shade600]),
+      [Colors.pinkAccent,Colors.pink.shade100]),
   Character(
       'Tohka Yatogami',
       [
@@ -84,7 +84,7 @@ List<Character> characters = [
         'Date A Live: Ars Install',
         'Date A Live Twin Edition: Rio Reincarnation'
       ],
-      [Colors.purple.shade200,Colors.deepPurple.shade400 ]),
+      [Colors.deepPurple.shade400,Colors.purple.shade200]),
   Character(
     'Origami Tobiichi',
     [
@@ -332,7 +332,7 @@ List<Character> characters = [
     'Female',
     'Spirit',
     'Reine is a highly intelligent and rational woman. She is the Analysis Officer of the Fraxinus’s crew and the assistant homeroom teacher of Shido\'s classroom. She is also the only member that could be considered "normal" among the Fraxinus\'s weird crew. Reine also acts as an unofficial aide to Kotori Itsuka, the commander of Fraxinus, due to the fact that the vice-commander acts like an idiot most of the time or is ignored by Kotori for being an idiot. \n Beautiful and intelligent, her only flaw is being sleep deprived, since she doesn\'t seem to sleep much. Reine transfers into Shido’s school, Raizen High School as the school\'s new physics teacher when Shido joined Ratatoskr. Reine usually gives the best advice or opinions out of Ratatoskr\'s crew during both the Fraxinus crew\'s operations to seal Spirits and normal circumstances.',
-    'I want his power. I want to make him mine and become one with him.',
+    '……But, we have to be careful. That Love could also be, the emotion that will destroy the world.',
     'Reine Murasame is the Head Analyst aboard Fraxinus and a non-certified medic who can perform simple first aid tasks. It is revealed in Volume 16 that she is the enigmatic entity known as Phantom ',
     ['Volume 1-19', 'Date A Live Encore 2,5,7',],
     [

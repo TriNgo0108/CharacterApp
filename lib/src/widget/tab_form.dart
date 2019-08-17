@@ -97,7 +97,7 @@ class _FormTabState extends State<FormTab> with TickerProviderStateMixin {
                   ),
                 ),
                 children: <Widget>[
-                  Image.asset(imagePath,height: screenHeight*0.3,width: screenWidth*0.3,),
+                  Image.asset(imagePath,height: screenHeight*0.35,width: screenWidth*0.35,),
                 ],
               ),
             );
@@ -118,13 +118,13 @@ class _FormTabState extends State<FormTab> with TickerProviderStateMixin {
               _showImage(nameForm, widget.character.imagePath[index]);
             },
             child: Card(
-              margin: EdgeInsets.only(left: screenWidth*0.01),
+              margin: EdgeInsets.only(left: screenWidth*0.01,top: screenHeight*0.01),
               child: Column(
                 children: <Widget>[
                   Image.asset(
                     widget.character.imagePath[index],
-                    height: screenHeight * 0.2,
-                    width: screenWidth*0.2,
+                    height: screenHeight * 0.22,
+                    width: screenWidth*0.22,
                   ),
                   SizedBox(
                     height: screenHeight * 0.01,
